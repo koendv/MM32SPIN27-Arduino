@@ -1,0 +1,43 @@
+diff --git a/1.0.1/cores/arduino/seekfree_libraries/zf_pwm.c b/1.0.1/cores/arduino/seekfree_libraries/zf_pwm.c
+index 3b1990c..cdb210f 100644
+--- a/1.0.1/cores/arduino/seekfree_libraries/zf_pwm.c
++++ b/1.0.1/cores/arduino/seekfree_libraries/zf_pwm.c
+@@ -48,7 +48,11 @@ void pwm_init (TIM_enum tim, TIM_PWMPIN_enum pin, uint32 freq, uint32 duty)
+ 	if(duty > PWM_DUTY_MAX)	return;																// 占空比写入错误
+ 	uint16 freq_div = ((SystemCoreClock / freq) >> 15);											// 计算预分频
+ 	uint16 period_temp = (SystemCoreClock / freq / (freq_div+1));								// 计算自动重装载值
+-	uint16 match_temp = (uint16)(period_temp*((float)duty/PWM_DUTY_MAX));						// 计算占空比
++	// use integer math instead of floating point
++	// division is just a bit shift, because PWM_DUTY_MAX is a power of two
++	uint32 calc_match_temp = ((uint32)period_temp * (uint32)duty) / PWM_DUTY_MAX;
++	uint16 match_temp = calc_match_temp;
++	// uint16 match_temp = (uint16)(period_temp*((float)duty/PWM_DUTY_MAX));						// 计算占空比
+ 
+ 	pwm_pin_init(pin);																			// 初始化引脚
+ 	if(tim & 0xf000)
+@@ -134,7 +138,11 @@ void pwm_duty_updata (TIM_enum tim, TIM_PWMPIN_enum pin, uint32 duty)
+ {
+ 	if(duty > PWM_DUTY_MAX)	return;																// 占空比写入错误
+ 	uint16 period_temp = tim_index[(tim&0x0f)]->ARR;											// 获取自动重装载值
+-	uint16 match_temp = (uint16)(period_temp*((float)duty/PWM_DUTY_MAX));						// 计算占空比
++	// use integer math instead of floating point
++	// division is just a bit shift, because PWM_DUTY_MAX is a power of two
++	uint32 calc_match_temp = ((uint32)period_temp * (uint32)duty) / PWM_DUTY_MAX;
++	uint16 match_temp = calc_match_temp;
++	// uint16 match_temp = (uint16)(period_temp*((float)duty/PWM_DUTY_MAX));						// 计算占空比
+ 
+ 	switch(pin&0xf000)																			// 提取通道值
+ 	{
+diff --git a/1.0.1/cores/arduino/seekfree_libraries/zf_pwm.h b/1.0.1/cores/arduino/seekfree_libraries/zf_pwm.h
+index 874580f..51ce247 100644
+--- a/1.0.1/cores/arduino/seekfree_libraries/zf_pwm.h
++++ b/1.0.1/cores/arduino/seekfree_libraries/zf_pwm.h
+@@ -25,7 +25,7 @@
+ 
+ #include "zf_tim.h"
+ 
+-#define PWM_DUTY_MAX		50000
++#define PWM_DUTY_MAX		32768
+ 
+ typedef enum
+ {

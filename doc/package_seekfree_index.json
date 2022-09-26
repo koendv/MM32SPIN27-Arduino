@@ -1,0 +1,148 @@
+{
+  "packages": [
+    {
+      "name": "SeekFree",
+      "websiteURL": "https://github.com/koendv",
+      "maintainer": "koendv",
+      "email": "",
+      "help": {
+        "online": "https://github.com/koendv"
+      },
+      "platforms": [
+        {
+          "name": "MM32 MindMotion",
+          "architecture": "mm32",
+          "version": "1.0.1",
+          "category": "Contributed",
+          "url": "http://192.168.0.13:8080/mm32-1.0.1.tar.bz2",
+          "archiveFileName": "mm32-1.0.1.tar.bz2",
+          "checksum": "SHA-256:87ad2937b665fdbd55322679d67ba0ab63dc299623777b7dfe4c26d0fe534911",
+          "size": "3128229",
+          "boards": [
+            {"name": "MM32SPIN27"},
+            {"name": "MM32SPIN25"}
+          ],
+          "toolsDependencies": [
+            {
+              "packager": "SeekFree",
+              "name": "xpack-arm-none-eabi-gcc",
+              "version": "11.3.1-1.1"
+            },
+            {
+              "packager": "SeekFree",
+              "name": "xpack-openocd",
+              "version": "0.11.0-4"
+            }
+          ]
+        }
+      ],
+      "tools": [     
+        {
+          "name": "xpack-arm-none-eabi-gcc",
+          "version": "10.3.1-2.3",
+          "systems":
+          [
+            {
+              "host": "aarch64-linux-gnu",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v11.3.1-1.1/xpack-arm-none-eabi-gcc-11.3.1-1.1-linux-arm64.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-11.3.1-1.1-linux-arm64.tar.gz",
+              "checksum": "SHA-256:393baf6c478fd65ebb826b0f21a40f168d32600e16a2cb926c1fb288e8de3958",
+              "size": "226274386"
+            },
+            {
+              "host": "i686-mingw32",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v11.3.1-1.1/xpack-arm-none-eabi-gcc-11.3.1-1.1-win32-x64.zip",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-11.3.1-1.1-win32-x64.zip",
+              "checksum": "SHA-256:d3906baa7a845bb8f341b67da8185e48fb9dc2746963bf40c2caea825c73ee5c",
+              "size": "240180110"
+            },
+            {
+              "host": "x86_64-apple-darwin",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v11.3.1-1.1/xpack-arm-none-eabi-gcc-11.3.1-1.1-darwin-x64.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-11.3.1-1.1-darwin-x64.tar.gz",
+              "checksum": "SHA-256:16dd4af277c488eae8a1f7bc8348f772fb0442946d767ea1ee77485ffe2ff848",
+              "size": "240180110"
+            },
+            {
+              "host": "x86_64-pc-linux-gnu",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v11.3.1-1.1/xpack-arm-none-eabi-gcc-11.3.1-1.1-linux-x64.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-11.3.1-1.1-linux-x64.tar.gz",
+              "checksum": "SHA-256:df515ea5b2efb625f1cf1e11c3d096c4ddf800408ee2bd061a67b7739a5febff",
+              "size": "227846583"
+            }
+          ]
+        },
+        {
+          "name": "xpack-arm-none-eabi-gcc",
+          "version": "10.3.1-2.3",
+          "systems":
+          [
+            {
+              "host": "aarch64-linux-gnu",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.3/xpack-arm-none-eabi-gcc-10.3.1-2.3-linux-arm64.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.3.1-2.3-linux-arm64.tar.gz",
+              "checksum": "SHA-256:6e3ee605079ba084836cd057022e16c28605f4068042cd14397976b836ea1a21",
+              "size": "174454524"
+            },
+            {
+              "host": "i686-mingw32",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.3/xpack-arm-none-eabi-gcc-10.3.1-2.3-win32-ia32.zip",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.3.1-2.3-win32-ia32.zip",
+              "checksum": "SHA-256:c98fc443d7ef3524d42a40b6635e8b99c736efac77729f8a70463bb9ba19bc85",
+              "size": "180590105"
+            },
+            {
+              "host": "x86_64-apple-darwin",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.3/xpack-arm-none-eabi-gcc-10.3.1-2.3-darwin-x64.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.3.1-2.3-darwin-x64.tar.gz",
+              "checksum": "SHA-256:eb9218eaafb74a05fab9cbbeb49fd4fe7b85c6ba411aefc66f681a5a862e8d8e",
+              "size": "173440158"
+            },
+            {
+              "host": "x86_64-pc-linux-gnu",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.3/xpack-arm-none-eabi-gcc-10.3.1-2.3-linux-x64.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.3.1-2.3-linux-x64.tar.gz",
+              "checksum": "SHA-256:559dcf1c2dfddac513110fe23da0ef254032c09967eaa901f075515d51818719",
+              "size": "175646740"
+            }
+          ]
+        },
+        {
+          "name": "xpack-openocd",
+          "version": "0.11.0-4",
+          "systems":
+          [
+            {
+              "host": "aarch64-linux-gnu",
+              "url": "https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.11.0-4/xpack-openocd-0.11.0-4-linux-arm64.tar.gz",
+              "archiveFileName": "xpack-openocd-0.11.0-4-linux-arm64.tar.gz",
+              "checksum": "SHA-256:083910b463ac949dd13170c130f3dcfb905f49bc6299cac4df11dd97e2dace22",
+              "size": "3219317"
+            },
+            {
+              "host": "i686-mingw32",
+              "url": "https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.11.0-4/xpack-openocd-0.11.0-4-win32-x64.zip",
+              "archiveFileName": "xpack-openocd-0.11.0-4-win32-x64.zip",
+              "checksum": "SHA-256:d380d3c1fecf8ac1eb7b5ed0f63a6fa329f4c830a0a94cdad6032fcd2ffa3a36",
+              "size": "2968201"
+            },
+            {
+              "host": "x86_64-apple-darwin",
+              "url": "https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.11.0-4/xpack-openocd-0.11.0-4-darwin-x64.tar.gz",
+              "archiveFileName": "xpack-openocd-0.11.0-4-darwin-x64.tar.gz",
+              "checksum": "SHA-256:46a0c14d908e041c62b7d87bdbc25a941bee31ad48726599e258f25baf142363",
+              "size": "2472025"
+            },
+            {
+              "host": "x86_64-pc-linux-gnu",
+              "url": "https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.11.0-4/xpack-openocd-0.11.0-4-linux-x64.tar.gz",
+              "archiveFileName": "xpack-openocd-0.11.0-4-linux-x64.tar.gz",
+              "checksum": "SHA-256:87eeeab232e9c9429a8c2b30fc3eaf629323c2c26db78d8c5b8623d26b8640d1",
+              "size": "3258221"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

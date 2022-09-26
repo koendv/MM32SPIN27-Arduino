@@ -1,0 +1,23 @@
+# boards.txt
+# See: https://arduino.github.io/arduino-cli/latest/platform-specification/
+
+MM32SPIN27.name=MM32SPIN27
+MM32SPIN27.build.variant=MM32SPIN27
+MM32SPIN27.build.board=MM32SPIN27
+MM32SPIN27.build.core=arduino
+MM32SPIN27.build.mcu=cortex-m0
+MM32SPIN27.build.fpu=
+MM32SPIN27.build.flash_size=128K
+MM32SPIN27.build.ram_size=12K
+MM32SPIN27.build.min_free_ram=3K
+
+MM32SPIN25.name=MM32SPIN25
+MM32SPIN25.build.variant=MM32SPIN27
+MM32SPIN25.build.board=MM32SPIN27
+MM32SPIN25.build.core=arduino
+MM32SPIN25.build.mcu=cortex-m0
+MM32SPIN25.build.fpu=
+MM32SPIN25.build.flash_size=32K
+MM32SPIN25.build.ram_size=8K
+MM32SPIN25.build.min_free_ram=2K
+
