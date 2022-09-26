@@ -14,7 +14,7 @@ This is modest but sufficient to write small projects.  As a demo project, see t
 ## compiling
 
 - Install arduino IDE
-- In __File ⇨ Preferences... ⇨ Additional Board Manager URLs__, put the URL of the _package_seekfree_index.json_ file: ``https://raw.githubusercontent.com/koendv/MM32SPIN27-Arduino/main/doc/package_seekfree_index.json``
+- In __File ⇨ Preferences... ⇨ Additional Board Manager URLs__, put the URL of the _package_seekfree_index.json_ file: ``https://raw.githubusercontent.com/koendv/MM32SPIN27-Arduino/main/package_seekfree_index.json``
 - close and restart arduino IDE.
 - for hardware division, copy the file libgcc.a: 
 ``cp mm32-libgcc/libgcc.a ~/.arduino15/packages/SeekFree/tools/xpack-arm-none-eabi-gcc/10.3.1-2.3/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a``

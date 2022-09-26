@@ -16,8 +16,8 @@
           "category": "Contributed",
           "url": "http://192.168.0.13:8080/mm32-1.0.1.tar.bz2",
           "archiveFileName": "mm32-1.0.1.tar.bz2",
-          "checksum": "SHA-256:87ad2937b665fdbd55322679d67ba0ab63dc299623777b7dfe4c26d0fe534911",
-          "size": "3128229",
+          "checksum": "SHA-256:04c70b59cbb865a9e6b55d4f898339fe86315f2a3ae14a9cadfa12118478cfae",
+          "size": "1482597",
           "boards": [
             {"name": "MM32SPIN27"},
             {"name": "MM32SPIN25"}
