@@ -26,7 +26,7 @@
             {
               "packager": "SeekFree",
               "name": "xpack-arm-none-eabi-gcc",
-              "version": "11.3.1-1.1"
+              "version": "10.3.1-2.3"
             },
             {
               "packager": "SeekFree",
