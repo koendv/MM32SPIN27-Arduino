@@ -4,17 +4,17 @@ Because of cost or supply problems, people look for alternatives to well-establi
 
 - does not need USB
 - does not need VBAT battery-backup
-- does not need FPU floating point unit 
+- does not need hardware FPU floating point unit (software floating point is OK)
 - needs only 12 kbyte RAM or less
 
 This is an arduino for MM32SPIN27 and MM32SPIN25 processors.
 
-This is modest but sufficient to write small projects.  As a demo project, see the t12 soldering iron controller. XXX
+This is modest but sufficient to write small projects.  As a demo project, see the [t12-958 soldering iron controller](https://github.com/koendv/t12-958).
 
 ## compiling
 
 - Install arduino IDE
-- In __File ⇨ Preferences... ⇨ Additional Board Manager URLs__, put the URL of the ``package_seekfree_index.json`` file: XXX
+- In __File ⇨ Preferences... ⇨ Additional Board Manager URLs__, put the URL of the _package_seekfree_index.json_ file: ``https://raw.githubusercontent.com/koendv/MM32SPIN27-Arduino/main/doc/package_seekfree_index.json``
 - close and restart arduino IDE.
 - for hardware division, copy the file libgcc.a: 
 ``cp mm32-libgcc/libgcc.a ~/.arduino15/packages/SeekFree/tools/xpack-arm-none-eabi-gcc/10.3.1-2.3/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a``
@@ -29,7 +29,7 @@ This is modest but sufficient to write small projects.  As a demo project, see t
 MM32SPIN27 is an Arm Cortex-m0 processor. Cortex-M0 has no hardware FPU, no division instruction.
 However, MM32SPIN27 has hardware acceleration for 32-bit integer division and remainder, integer square root and crc.
 
-On a small processor like this, if there is hardware support, it's there for a reason. Use it.
+On a small processor like this, if there is hardware support for something, it's there for a reason. Use it.
 
 ### hardware division
 Standard libgcc on Cortex-M0 uses software integer division. Division in software works, but is slow. Using hardware division speeds up execution noticeably. This software patches libgcc to use MM32 hardware support for 32-bit signed and unsigned integer division. If you wish to use hardware division you have to replace the compiler ``libgcc.a`` by the patched version.  See directory ``mm32-libgcc``
@@ -82,6 +82,8 @@ The following libraries are included:
 - _Serial_ hardware UART
 - _SoftwareWire_ I2C in software
 - _SPI_ in hardware
+
+This list was determined in the following way: I wrote a demo project. If something was needed to implement the demo, I added it. If something was not needed, I did not add it.
 
 ## demo project
 
