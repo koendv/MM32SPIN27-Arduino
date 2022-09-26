@@ -83,7 +83,7 @@ The following libraries are included:
 - _SoftwareWire_ I2C in software
 - _SPI_ in hardware
 
-This list was determined in the following way: I wrote a demo project. If something was needed to implement the demo, I added it. If something was not needed, I did not add it.
+This list was determined in the following way: I wrote a demo project. If something was needed, I added it. If something was not needed, I did not add it.
 
 ## demo project
 
