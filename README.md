@@ -87,7 +87,7 @@ This list was determined in the following way: I wrote a demo project. If someth
 
 ## demo project
 
-As a demo, a soldering station was implemented. This is an application with an SPI OLED display, a rotary encoder with pushbutton, analog and digital inputs, and PWM output. Standard arduino libraries were used for display, task scheduler, PID controller, and temperature sensors.
+As a demo, a [T12 soldering station](https://github.com/koendv/t12-958) was implemented. This is an application with an SPI OLED display, a rotary encoder with pushbutton, analog and digital inputs, and PWM output. Standard arduino libraries were used for display, task scheduler, PID controller, and temperature sensors.
 
 ## free memory
 
