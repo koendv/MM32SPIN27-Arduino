@@ -102,6 +102,15 @@ Either
 - rewrite the program to use less memory, or
 - lower the amount of free memory needed. In ``boards.txt``, change ``MM32SPIN27.build.min_free_ram=3K``
 
+## firmware download
+
+The compiled firmware can be downloaded to the MM32SPIN27
+
+
+- Segger JLink does not explicitly support MM32SPIN27 but MM32L072XX works.
+- OpenOCD has an old patch to support the similar [MM32L062](https://sourceforge.net/p/openocd/mailman/message/37388746/)
+- [H7-Tool](https://www.armfly.com/product/H7-TOOL/H7-TOOL.shtml) supports many "Made in Asia" processors, including MM32. Includes an RTT Viewer. H7-Tool is an [open-source](https://github.com/armfly/H7-TOOL_STM32H7_App) commercial product.
+- firmware [download via serial port](mm32/doc/isp).
 
 ## other processors
 
