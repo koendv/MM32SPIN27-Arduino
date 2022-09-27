@@ -127,12 +127,7 @@ First, in boards.txt change ram and flash size, and see if you can run a small a
 
 ## References
 
-This software uses
-
 - [HAL library from MindMotion](https://mindmotion.com.cn/products/mm32mcu/mm32spin/mm32spin_specific_mcu/mm32spin2x/), the manufacturer of the MM32SPIN27
 - [SeekFree library for the MM32SPIN27](https://gitee.com/seekfree/MM32SPIN27_Library)
 - [ArduinoCore-API](https://github.com/arduino/ArduinoCore-API)
-
-Also of interest:
-
 - [mm32_startup](https://github.com/iclite/mm32_startup/)
