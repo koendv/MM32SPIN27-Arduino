@@ -116,6 +116,19 @@ The compiled firmware can be downloaded to the MM32SPIN27
 
 Linux is used as development platform. Files are case-sensitive.
 
+On Windows, I found arduino stored the MM32SPIN27 files under the directory ``C:\Users\Koen\AppData\Local\Arduino15\packages\SeekFree``  
+To make this directory and subdirectories case sensitive:
+
+- compress the SeekFree folder to SeekFree.zip
+- delete the SeekFree folder
+- create an empty SeekFree folder
+- at the command prompt:
+```
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+fsutil.exe file setCaseSensitiveInfo "C:\Users\Koen\AppData\Local\Arduino15\packages\SeekFree" enable
+```
+- unzip SeekFree.zip
+
 ## other processors
 
 This software is for MM32SPIN27.  This software can be adapted to other MindMotion MM32 Cortex-M0 processors.
