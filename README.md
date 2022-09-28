@@ -112,6 +112,10 @@ The compiled firmware can be downloaded to the MM32SPIN27
 - [H7-Tool](https://www.armfly.com/product/H7-TOOL/H7-TOOL.shtml) supports many "Made in Asia" processors, including MM32. Includes an RTT Viewer. H7-Tool is an [open-source](https://github.com/armfly/H7-TOOL_STM32H7_App) commercial product.
 - firmware [download via serial port](mm32/doc/isp).
 
+## development platform
+
+Linux is used as development platform. Files are case-sensitive.
+
 ## other processors
 
 This software is for MM32SPIN27.  This software can be adapted to other MindMotion MM32 Cortex-M0 processors.
