@@ -69,25 +69,6 @@ Support for hardware crc is through the arduino library ``HWCRC``. Only one crc3
 
 Support for hardware integer square root is the arduino library ``HWSQRT``.
 
-## compiler version
-
-The compilers from the [xpack project](https://xpack.github.io/arm-none-eabi-gcc/) are used.
-
-If you wish to change the compiler version: Compiler version is specified twice, once in platform.txt:
-```
-compiler.path={runtime.tools.xpack-arm-none-eabi-gcc-10.3.1-1.2.3.path}/bin/
-```
-and once in
-package_seekfree_index.json:
-```
-          "toolsDependencies": [
-            {
-              "packager": "SeekFree",
-              "name": "xpack-arm-none-eabi-gcc",
-              "version": "10.3.1-2.3"
-            },
-```
-
 ## functions
 
 The following functions were ported to MM32SPIN27:
@@ -138,13 +119,32 @@ The compiled firmware can then be downloaded to the MM32SPIN27:
 - [H7-Tool](https://www.armfly.com/product/H7-TOOL/H7-TOOL.shtml) supports many "Made in Asia" processors, including MM32. Includes an RTT Viewer. H7-Tool is an [open-source](https://github.com/armfly/H7-TOOL_STM32H7_App) commercial product.
 - firmware [download via serial port](mm32/doc/isp).
 
+## compiler version
+
+The compilers from the [xpack project](https://xpack.github.io/arm-none-eabi-gcc/) are used.
+
+If you wish to change the compiler version: Compiler version is specified twice, once in platform.txt:
+```
+compiler.path={runtime.tools.xpack-arm-none-eabi-gcc-10.3.1-1.2.3.path}/bin/
+```
+and once in
+package_seekfree_index.json:
+```
+          "toolsDependencies": [
+            {
+              "packager": "SeekFree",
+              "name": "xpack-arm-none-eabi-gcc",
+              "version": "10.3.1-2.3"
+            },
+```
+
 ## other processors
 
 This software is for MM32SPIN27.  This software can be adapted to other MindMotion MM32 Cortex-M0 processors.
 
-First, in boards.txt change ram and flash size, and see if you can run a small arduino sketch to blink a led. Maybe you are lucky.
+First, in boards.txt change ram size, flash size, minimum free ram, and see if you can run a small arduino sketch to blink a led. Maybe you are lucky.
 
-- boards.txt: set ram and flash size
+- boards.txt: set ram size, flash size, minimum free memory.
 - package_seekfree_index.json: add board to  packages->platforms->boards
 - check board definition in ``variants`` directory, create new board if necessary
 - replace cores/arduino/HAL_Lib with HAL_Lib for the new processor
