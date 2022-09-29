@@ -23,6 +23,31 @@ This is modest but sufficient to write small projects.  As a demo project, see t
 - choose __Sketch... ⇨ Verify/Compile__
 - upload firmware using a debugger (H7-Tool, JLink) or using the serial port (pin BOOT0 high).
 
+## development platform
+
+Arduino IDE 2.0 and arduino-cli is used.
+
+### linux
+
+Linux is used as development platform. Files are case-sensitive. For best results, use a debian-based linux.
+
+### windows
+
+To successfully compile on Windows, directories need to be configured as case-sensitive. Else the system does not distinguish between "String.h" and "string.h".
+
+On Windows, arduino stores the MM32SPIN27 files under the directory ``C:\Users\Name\AppData\Local\Arduino15\packages\SeekFree``, where Name is your Windows user name.
+To make this directory and subdirectories case sensitive:
+
+- in File Explorer, go to ``C:\Users\Name\AppData\Local\Arduino15\packages``
+- compress the SeekFree folder to SeekFree.zip
+- delete the SeekFree folder
+- create an empty SeekFree folder
+- run PowerShell as Administrator and at the command prompt type:
+```
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+fsutil.exe file setCaseSensitiveInfo "C:\Users\Name\AppData\Local\Arduino15\packages\SeekFree" enable
+```
+- unzip SeekFree.zip
 
 ## hardware  acceleration
 
@@ -63,14 +88,14 @@ package_seekfree_index.json:
             },
 ```
 
-## included functions
+## functions
 
-The following functions are included:
+The following functions were ported to MM32SPIN27:
 
- - attachInterrupt(), detachInterrupt()
- - analogRead(), analogReadResolution(), analogSampleTime()
- - analogWrite(), analogWriteResolution(), analogWriteFrequency()
- - digitalWrite(), digitalRead(), digitalToggle()
+- attachInterrupt(), detachInterrupt()
+- analogRead(), analogReadResolution(), analogSampleTime()
+- analogWrite(), analogWriteResolution(), analogWriteFrequency()
+- digitalWrite(), digitalRead(), digitalToggle()
 - millis(), delay(), delayMicroseconds()
 
 The following libraries are included:
@@ -83,7 +108,7 @@ The following libraries are included:
 - _SoftwareWire_ I2C in software
 - _SPI_ in hardware
 
-This list was determined in the following way: I wrote a demo project. If something was needed, I added it. If something was not needed, I did not add it.
+This list was determined in the following way: I wrote a demo project. If something was needed, I added it.
 
 ## demo project
 
@@ -94,49 +119,24 @@ As a demo, a [T12 soldering station](https://github.com/koendv/t12-958) was impl
 The linker checks there is enough free memory. If you get the following error, there is not enough free memory.
 
 ```
-arm-none-eabi/bin/ld: region `RAM' overflowed by 536 bytes
+arm-none-eabi/bin/ld: region `RAM' overflowed by 123 bytes
 collect2: error: ld returned 1 exit status
 ```
-Either
+To solve this problem, either
 
 - rewrite the program to use less memory, or
 - lower the amount of free memory needed. In ``boards.txt``, change ``MM32SPIN27.build.min_free_ram=3K``
 
 ## firmware download
 
-The compiled firmware can be downloaded to the MM32SPIN27
+After successful compilation, binaries are in ``/home/UserName/Arduino/ProjectName/build/SeekFree.mm32.MM32SPIN27/ProjectName.ino.elf``
 
+The compiled firmware can then be downloaded to the MM32SPIN27:
 
 - Segger JLink does not explicitly support MM32SPIN27 but MM32L072XX works.
 - OpenOCD has an old patch to support the similar [MM32L062](https://sourceforge.net/p/openocd/mailman/message/37388746/)
 - [H7-Tool](https://www.armfly.com/product/H7-TOOL/H7-TOOL.shtml) supports many "Made in Asia" processors, including MM32. Includes an RTT Viewer. H7-Tool is an [open-source](https://github.com/armfly/H7-TOOL_STM32H7_App) commercial product.
 - firmware [download via serial port](mm32/doc/isp).
-
-## development platform
-
-Arduino IDE 2.0 and arduino-cli is used.
-
-### linux
-
-Linux is used as development platform. Files are case-sensitive. For best results, use a debian-based linux.
-
-### windows
-
-To successfully compile on Windows, directories need to be configured as case-sensitive. Else the system does not distinguish between "String.h" and "string.h".
-
-On Windows, arduino stores the MM32SPIN27 files under the directory ``C:\Users\Name\AppData\Local\Arduino15\packages\SeekFree``, where Name is your Windows user name.
-To make this directory and subdirectories case sensitive:
-
-- in File Explorer, go to ``C:\Users\Name\AppData\Local\Arduino15\packages``
-- compress the SeekFree folder to SeekFree.zip
-- delete the SeekFree folder
-- create an empty SeekFree folder
-- run PowerShell as Administrator and at the command prompt type:
-```
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-fsutil.exe file setCaseSensitiveInfo "C:\Users\Name\AppData\Local\Arduino15\packages\SeekFree" enable
-```
-- unzip SeekFree.zip
 
 ## other processors
 
@@ -149,11 +149,11 @@ First, in boards.txt change ram and flash size, and see if you can run a small a
 - check board definition in ``variants`` directory, create new board if necessary
 - replace cores/arduino/HAL_Lib with HAL_Lib for the new processor
 - replace cores/arduino/MM32SPIN2xx_p with SDK for the new processor
-- to add a directory to the include path, in ``platform.txt`` set ``compiler.seekfree.extra_include``
+- to add a directory to the include path, in ``platform.txt`` add the path to ``compiler.seekfree.extra_include``
 
 ## References
 
-- [HAL library from MindMotion](https://mindmotion.com.cn/products/mm32mcu/mm32spin/mm32spin_specific_mcu/mm32spin2x/), the manufacturer of the MM32SPIN27
+- [HAL library from MindMotion](https://mindmotion.com.cn/products/mm32mcu/mm32spin/mm32spin_specific_mcu/mm32spin2x/)
 - [SeekFree library for the MM32SPIN27](https://gitee.com/seekfree/MM32SPIN27_Library)
 - [ArduinoCore-API](https://github.com/arduino/ArduinoCore-API)
 - [mm32_startup](https://github.com/iclite/mm32_startup/)
