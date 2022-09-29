@@ -1,6 +1,6 @@
 # MM32SPIN27 arduino
 
-Because of cost or supply problems, people look for alternatives to well-established microcontrollers. The MindMotion MM32SPIN27 is a low-cost Arm Cortex-M0 microcontroller, with a pin-out compatible with the STM32F103.  The MM32SPIN27 is an alternative to the STM32F103, if your application
+Because of cost or supply problems, people look for alternatives to well-established microcontrollers. The [MindMotion MM32SPIN27](https://mindmotion.com.cn/en/development_tools/info.aspx?itemid=3388) is a low-cost Arm Cortex-M0 microcontroller with a pin-out compatible with the STM32F103.  The MM32SPIN27 is an alternative to the STM32F103, if your application
 
 - does not need USB
 - does not need VBAT battery-backup
@@ -9,6 +9,9 @@ Because of cost or supply problems, people look for alternatives to well-establi
 - needs only 12 kbyte RAM or less
 
 This is an arduino for MM32SPIN27 and MM32SPIN25 processors.
+
+- MM32SPIN27: 128kbyte flash, 12kbyte ram, 96MHz
+- MM32SPIN25:  32kbyte flash, 8kbyte ram, 96MHz
 
 This is modest but sufficient to write small projects.  As a demo project, see the [t12-958 soldering iron controller](https://github.com/koendv/t12-958).
 
