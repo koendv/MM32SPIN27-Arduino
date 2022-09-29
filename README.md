@@ -158,7 +158,7 @@ First, in boards.txt change ram size, flash size, minimum free ram, and see if y
 - to add a directory to the include path, in ``platform.txt`` add the path to ``compiler.seekfree.extra_include``
 
 ## References
-
+- [MM32SPIN27 datasheet](mm32/doc/pdf/DS_MM32SPIN2x_p_EN.pdf) (English)
 - [HAL library from MindMotion](https://mindmotion.com.cn/products/mm32mcu/mm32spin/mm32spin_specific_mcu/mm32spin2x/)
 - [SeekFree library for the MM32SPIN27](https://gitee.com/seekfree/MM32SPIN27_Library)
 - [ArduinoCore-API](https://github.com/arduino/ArduinoCore-API)
