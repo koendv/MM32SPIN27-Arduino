@@ -114,18 +114,27 @@ The compiled firmware can be downloaded to the MM32SPIN27
 
 ## development platform
 
-Linux is used as development platform. Files are case-sensitive.
+Arduino IDE 2.0 and arduino-cli is used.
 
-On Windows, I found arduino stored the MM32SPIN27 files under the directory ``C:\Users\Koen\AppData\Local\Arduino15\packages\SeekFree``  
+### linux
+
+Linux is used as development platform. Files are case-sensitive. For best results, use a debian-based linux.
+
+### windows
+
+To successfully compile on Windows, directories need to be configured as case-sensitive. Else the system does not distinguish between "String.h" and "string.h".
+
+On Windows, arduino stores the MM32SPIN27 files under the directory ``C:\Users\Name\AppData\Local\Arduino15\packages\SeekFree``, where Name is your Windows user name.
 To make this directory and subdirectories case sensitive:
 
+- in File Explorer, go to ``C:\Users\Name\AppData\Local\Arduino15\packages``
 - compress the SeekFree folder to SeekFree.zip
 - delete the SeekFree folder
 - create an empty SeekFree folder
-- at the command prompt:
+- run PowerShell as Administrator and at the command prompt type:
 ```
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-fsutil.exe file setCaseSensitiveInfo "C:\Users\Koen\AppData\Local\Arduino15\packages\SeekFree" enable
+fsutil.exe file setCaseSensitiveInfo "C:\Users\Name\AppData\Local\Arduino15\packages\SeekFree" enable
 ```
 - unzip SeekFree.zip
 
