@@ -5,6 +5,7 @@ Because of cost or supply problems, people look for alternatives to well-establi
 - does not need USB
 - does not need VBAT battery-backup
 - does not need hardware FPU floating point unit (software floating point is OK)
+- does not need EEPROM (storing settings in flash is OK)
 - needs only 12 kbyte RAM or less
 
 This is an arduino for MM32SPIN27 and MM32SPIN25 processors.
