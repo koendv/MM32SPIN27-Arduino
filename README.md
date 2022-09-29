@@ -53,6 +53,8 @@ fsutil.exe file setCaseSensitiveInfo "C:\Users\Name\AppData\Local\Arduino15\pack
 ```
 - unzip SeekFree.zip
 
+The SeekFree directory and the files and subdirectories in the SeekFree directory are now case-sensitive.
+
 ## hardware  acceleration
 
 MM32SPIN27 is an Arm Cortex-m0 processor. Cortex-M0 has no hardware FPU, no division instruction.
