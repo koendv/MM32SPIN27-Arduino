@@ -23,9 +23,15 @@
 #include "board.h"
 #include "headfile.h"
 
+// array of interrupt service routines for TIM1 ... TIM17
+extern void (*timisr_ptr[7])(void);
+// array of interrupt service routines for UART0 ... UART1
+extern void (*uart_rx_isr_ptr[2])(void);
+extern void (*uart_tx_isr_ptr[2])(void);
 // array of interrupt service routines for EXTI0 ... EXTI15
 extern void (*extisr_ptr[16])(void);
 // array of interrupt service routines for DMA1 channel 1 ... channel 5
 extern void (*dmaisr_ptr[5])(void);
+
 
 #endif

@@ -25,45 +25,55 @@
 
 void (*extisr_ptr[16])(void) = {NULL};
 void (*dmaisr_ptr[5])(void) = {NULL};
+void (*timisr_ptr[7])(void) = {NULL};
+void (*uart_rx_isr_ptr[2])(void) = {NULL};
+void (*uart_tx_isr_ptr[2])(void) = {NULL};
 
 void TIM1_BRK_UP_TRG_COM_IRQHandler (void)
 {
+	if (timisr_ptr[0]) (*timisr_ptr[0])();
 	uint32 state = TIM1->SR;		// 读取中断状态
 	TIM1->SR &= ~state;		// 清空中断状态
 }
 
 void TIM2_IRQHandler (void)
 {
+	if (timisr_ptr[1]) (*timisr_ptr[1])();
 	uint32 state = TIM2->SR;		// 读取中断状态
 	TIM2->SR &= ~state;		// 清空中断状态
 }
 
 void TIM3_IRQHandler (void)
 {
+	if (timisr_ptr[2]) (*timisr_ptr[2])();
 	uint32 state = TIM3->SR;		// 读取中断状态
 	TIM3->SR &= ~state;		// 清空中断状态
 }
 
 void TIM8_BRK_UP_TRG_COM_IRQHandler (void)
 {
+	if (timisr_ptr[3]) (*timisr_ptr[3])();
 	uint32 state = TIM8->SR;		// 读取中断状态
 	TIM8->SR &= ~state;		// 清空中断状态
 }
 
 void TIM14_IRQHandler (void)
 {
+	if (timisr_ptr[4]) (*timisr_ptr[4])();
 	uint32 state = TIM14->SR;		// 读取中断状态
 	TIM14->SR &= ~state;		// 清空中断状态
 }
 
 void TIM16_IRQHandler (void)
 {
+	if (timisr_ptr[5]) (*timisr_ptr[5])();
 	uint32 state = TIM16->SR;		// 读取中断状态
 	TIM16->SR &= ~state;		// 清空中断状态
 }
 
 void TIM17_IRQHandler (void)
 {
+	if (timisr_ptr[6]) (*timisr_ptr[6])();
 	uint32 state = TIM17->SR;		// 读取中断状态
 	TIM17->SR &= ~state;		// 清空中断状态
 }
@@ -72,10 +82,12 @@ void UART1_IRQHandler(void)
 {
 	if(UART1->ISR & UART_ISR_TX_INTF)		// 串口发送缓冲空中断
 	{
+		if (uart_tx_isr_ptr[0]) (*uart_tx_isr_ptr[0])();
 		UART1->ICR |= UART_ICR_TXICLR;		// 清除中断标志位
 	}
 	if(UART1->ISR & UART_ISR_RX_INTF)		// 串口接收缓冲中断
 	{
+		if (uart_rx_isr_ptr[0]) (*uart_rx_isr_ptr[0])();
 		UART1->ICR |= UART_ICR_RXICLR;		// 清除中断标志位
 	}
 }
@@ -84,10 +96,12 @@ void UART2_IRQHandler(void)
 {
 	if(UART2->ISR & UART_ISR_TX_INTF)		// 串口发送缓冲空中断
 	{
+		if (uart_tx_isr_ptr[1]) (*uart_tx_isr_ptr[1])();
 		UART2->ICR |= UART_ICR_TXICLR;		// 清除中断标志位
 	}
 	if(UART2->ISR & UART_ISR_RX_INTF)		// 串口接收缓冲中断
 	{
+		if (uart_rx_isr_ptr[1]) (*uart_rx_isr_ptr[1])();
 		UART2->ICR |= UART_ICR_RXICLR;		// 清除中断标志位
 	}
 }
