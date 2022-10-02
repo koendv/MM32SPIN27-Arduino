@@ -162,6 +162,8 @@ First, in boards.txt change ram size, flash size, minimum free ram, and see if y
 - [MM32SPIN27 datasheet](mm32/doc/pdf/DS_MM32SPIN2x_p_EN.pdf) (English)
 - [MM32SPIN27 product page](https://mindmotion.com.cn/en/development_tools/info.aspx?itemid=3388) (English)
 - [HAL library from MindMotion](https://mindmotion.com.cn/products/mm32mcu/mm32spin/mm32spin_specific_mcu/mm32spin2x/)
+- [MM32SPIN2x_p_Lib_Samples](https://github.com/koendv/MM32SPIN27-Arduino/raw/main/mm32/doc/src/MM32SPIN2x_p_Lib_Samples.zip)
 - [SeekFree library for the MM32SPIN27](https://gitee.com/seekfree/MM32SPIN27_Library)
 - [ArduinoCore-API](https://github.com/arduino/ArduinoCore-API)
 - [mm32_startup](https://github.com/iclite/mm32_startup/)
+- [mm32spin0280_lib_samples](https://gitee.com/mm32/mm32spin0280_lib_samples) Different but similar processor; more source samples.
