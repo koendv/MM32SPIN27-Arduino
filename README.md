@@ -25,7 +25,7 @@ This is modest but sufficient to write small projects.  As a demo project, see t
 - in the upper left, in __Select other board and port...__ type: __MM32SPIN27__
 - in __File ⇨ Open...__ choose the project. Example: __t12-958.ino__
 - choose __Sketch... ⇨ Verify/Compile__
-- upload firmware using a debugger (H7-Tool, JLink) or using the serial port (pin BOOT0 high).
+- upload firmware using a debugger (H7-Tool, black magic probe,  JLink) or using the serial port (pin BOOT0 high).
 
 ## development platform
 
@@ -122,7 +122,7 @@ The compiled firmware can then be downloaded to the MM32SPIN27:
 
 - Segger JLink does not explicitly support MM32SPIN27 but MM32L072XX works.
 - OpenOCD has an old patch to support the similar [MM32L062](https://sourceforge.net/p/openocd/mailman/message/37388746/)
-- Black Magic Probe has a [PR for MM32](https://github.com/blackmagic-debug/blackmagic/pull/1362)
+- Black Magic Probe supports MM32SPIN27 [PR for MM32](https://github.com/blackmagic-debug/blackmagic/pull/1362)
 - [H7-Tool](https://www.armfly.com/product/H7-TOOL/H7-TOOL.shtml) supports many "Made in Asia" processors, including MM32. Includes an RTT Viewer. H7-Tool is an [open-source](https://github.com/armfly/H7-TOOL_STM32H7_App) commercial product.
 - firmware [download via serial port](mm32/doc/isp).
 - [AN0006](mm32/doc/pdf/AN0006_MM32_Supported_Programmer_SC.pdf) contains a list of supported debuggers/flashers. (Chinese)
