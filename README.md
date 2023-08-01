@@ -168,3 +168,4 @@ First, in boards.txt change ram size, flash size, minimum free ram, and see if y
 - [ArduinoCore-API](https://github.com/arduino/ArduinoCore-API)
 - [mm32_startup](https://github.com/iclite/mm32_startup/)
 - [mm32spin0280_lib_samples](https://gitee.com/mm32/mm32spin0280_lib_samples) Different but similar processor; more source samples.
+- [4 channel SPDT relay firmware](http://47.106.166.129/fenyi/4_channel_SPDT_relay_wirmware/) on MM32SPIN31
