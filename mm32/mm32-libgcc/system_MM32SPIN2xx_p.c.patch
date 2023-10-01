@@ -1,17 +1,6 @@
-diff --git a/1.0.0/cores/arduino/system_MM32SPIN2xx_p.c b/1.0.0/cores/arduino/system_MM32SPIN2xx_p.c
-index 9b189a8..e8a8b95 100644
---- a/1.0.0/cores/arduino/system_MM32SPIN2xx_p.c
-+++ b/1.0.0/cores/arduino/system_MM32SPIN2xx_p.c
-@@ -68,7 +68,7 @@ If you are using different crystal you have to adapt those functions accordingly
- /*!< Uncomment the following line if you need to relocate your vector Table in
- Internal SRAM. */
- /* #define VECT_TAB_SRAM */
--#define VECT_TAB_OFFSET  0x0 /*!< Vector Table base offset field. 
-+#define VECT_TAB_OFFSET  0x0 /*!< Vector Table base offset field.
- This value must be a multiple of 0x200. */
- 
- /**
-@@ -171,6 +171,26 @@ void SystemInit (void)
+--- system_MM32SPIN2xx_p.c.ORIG	2023-10-01 12:39:08.184291379 +0200
++++ system_MM32SPIN2xx_p.c	2023-10-01 12:37:15.897386953 +0200
+@@ -171,6 +171,36 @@
      /* Configure the System clock frequency, HCLK, PCLK2 and PCLK1 prescalers */
      /* Configure the Flash Latency cycles and enable prefetch buffer */
      SetSysClock();
@@ -27,28 +16,38 @@ index 9b189a8..e8a8b95 100644
 +   and at this point in the boot process we still do not have a AHB clock.
 + */
 +
-+u32 u32_divide(u32 n, u32 d)
++u32 u32_divide (u32 num, uint32_t den)
 +{
-+    u32 q = 0;
-+    while (n >= d) {
-+      q++;
-+      n -= d;
++  u32 bit = 1;
++  u32 res = 0;
++
++  while (den < num && bit && !(den & (1L << 31))) {
++    den <<= 1;
++    bit <<= 1;
++  }
++  while (bit) {
++    if (num >= den) {
++      num -= den;
++      res |= bit;
 +    }
-+    return q;
++    bit >>= 1;
++    den >>= 1;
++  }
++  return res;
  }
  
  /**
-@@ -191,7 +211,8 @@ u32 AutoCalPllFactor(u32 pllclkSourceFrq, u32 pllclkFrq, u8 *plln, u8* pllm)
+@@ -191,7 +221,8 @@
      {
          for(n = 0; n < 64 ; n++)
          {
 -            tempFrq =  pllclkSourceFrq * (n + 1) / (m + 1);
 +//            tempFrq =  pllclkSourceFrq * (n + 1) / (m + 1);
-+            tempFrq =  pllclkSourceFrq * u32_divide(n + 1, m + 1);
++            tempFrq =  u32_divide(pllclkSourceFrq * (n + 1), m + 1);
              tempFrq = (tempFrq >  pllclkFrq) ? (tempFrq - pllclkFrq) : (pllclkFrq - tempFrq) ;
  
              if(minDiff > tempFrq)
-@@ -597,7 +618,8 @@ static void SetSysClockToXX(void)
+@@ -597,7 +628,8 @@
          FLASH->ACR |= FLASH_ACR_PRFTBE;
          /* Flash 0 wait state ,bit0~2*/
          FLASH->ACR &= ~0x07;
@@ -58,7 +57,7 @@ index 9b189a8..e8a8b95 100644
          FLASH->ACR |= temp;
  
  #if 1
-@@ -775,7 +797,8 @@ void SetSysClockToXX_HSI(void)
+@@ -775,7 +807,8 @@
      /* Flash 0 wait state ,bit0~2*/
      FLASH->ACR &= ~0x07;
  
