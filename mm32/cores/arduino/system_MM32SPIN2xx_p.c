@@ -183,14 +183,24 @@ void SystemInit (void)
    and at this point in the boot process we still do not have a AHB clock.
  */
 
-u32 u32_divide(u32 n, u32 d)
+u32 u32_divide (u32 num, uint32_t den)
 {
-    u32 q = 0;
-    while (n >= d) {
-      q++;
-      n -= d;
+  u32 bit = 1;
+  u32 res = 0;
+
+  while (den < num && bit && !(den & (1L << 31))) {
+    den <<= 1;
+    bit <<= 1;
+  }
+  while (bit) {
+    if (num >= den) {
+      num -= den;
+      res |= bit;
     }
-    return q;
+    bit >>= 1;
+    den >>= 1;
+  }
+  return res;
 }
 
 /**
@@ -212,7 +222,7 @@ u32 AutoCalPllFactor(u32 pllclkSourceFrq, u32 pllclkFrq, u8 *plln, u8* pllm)
         for(n = 0; n < 64 ; n++)
         {
 //            tempFrq =  pllclkSourceFrq * (n + 1) / (m + 1);
-            tempFrq =  pllclkSourceFrq * u32_divide(n + 1, m + 1);
+            tempFrq =  u32_divide(pllclkSourceFrq * (n + 1), m + 1);
             tempFrq = (tempFrq >  pllclkFrq) ? (tempFrq - pllclkFrq) : (pllclkFrq - tempFrq) ;
 
             if(minDiff > tempFrq)
