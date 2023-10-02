@@ -16,8 +16,8 @@
           "category": "Contributed",
           "url": "https://github.com/koendv/MM32SPIN27-Arduino/releases/download/1.0.3/mm32-1.0.3.tar.bz2",
           "archiveFileName": "mm32-1.0.3.tar.bz2",
-          "checksum": "SHA-256:3927096fa075b3eebb14ccf5368f252599d7802b5a04ca0c2d9258ea3138e28b",
-          "size": "19261198",
+          "checksum": "SHA-256:e0e4f7ec1eb58a0e5f3c44eb8b6416b1b5f5811c884f9c6b8765a16aef75508c",
+          "size": "19261282",
           "boards": [
             {"name": "MM32SPIN27"},
             {"name": "MM32SPIN25"}
