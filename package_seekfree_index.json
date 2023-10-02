@@ -12,12 +12,12 @@
         {
           "name": "MM32 MindMotion",
           "architecture": "mm32",
-          "version": "1.0.2",
+          "version": "1.0.3",
           "category": "Contributed",
-          "url": "https://github.com/koendv/MM32SPIN27-Arduino/releases/download/1.0.2/mm32-1.0.2.tar.bz2",
-          "archiveFileName": "mm32-1.0.2.tar.bz2",
-          "checksum": "SHA-256:04baa88c51bbe3b8cbffe6361519a7ad5c186c71dc27580d993abe7ca6174fde",
-          "size": "19176887",
+          "url": "https://github.com/koendv/MM32SPIN27-Arduino/releases/download/1.0.3/mm32-1.0.3.tar.bz2",
+          "archiveFileName": "mm32-1.0.3.tar.bz2",
+          "checksum": "SHA-256:3927096fa075b3eebb14ccf5368f252599d7802b5a04ca0c2d9258ea3138e28b",
+          "size": "19261198",
           "boards": [
             {"name": "MM32SPIN27"},
             {"name": "MM32SPIN25"}
