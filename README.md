@@ -120,12 +120,11 @@ After successful compilation, binaries are in ``/home/UserName/Arduino/ProjectNa
 
 The compiled firmware can then be downloaded to the MM32SPIN27:
 
-- Segger JLink does not explicitly support MM32SPIN27 but MM32L072XX works.
-- OpenOCD has an old patch to support the similar [MM32L062](https://sourceforge.net/p/openocd/mailman/message/37388746/)
-- Black Magic Probe supports MM32SPIN27 [PR for MM32](https://github.com/blackmagic-debug/blackmagic/pull/1362)
-- [H7-Tool](https://www.armfly.com/product/H7-TOOL/H7-TOOL.shtml) supports many "Made in Asia" processors, including MM32. Includes an RTT Viewer. H7-Tool is an [open-source](https://github.com/armfly/H7-TOOL_STM32H7_App) commercial product.
-- firmware [download via serial port](mm32/doc/isp).
+- Segger JLink does not explicitly support MM32SPIN27 but configuring as MM32L072XX works.
+- [Black Magic Probe](https://github.com/blackmagic-debug/blackmagic/) supports MM32SPIN27
+- [H7-Tool](https://www.armfly.com/product/H7-TOOL/H7-TOOL.shtml) supports many "Made in Asia" processors, including MM32.
 - [AN0006](mm32/doc/pdf/AN0006_MM32_Supported_Programmer_SC.pdf) contains a list of supported debuggers/flashers. (Chinese)
+- firmware [download via serial port](mm32/doc/isp).
 
 ## compiler version
 
